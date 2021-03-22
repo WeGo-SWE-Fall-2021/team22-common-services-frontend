@@ -12,7 +12,7 @@ function logIn() {
 		'password': password
 	};
 
-	fetch(`https://${cloud}.team22.sweispring21.tk/common-services/login`, {
+	fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/common-services/login`, {
 		method:"POST",
 		headers: {
 			'Content-Type': 'application/json'
