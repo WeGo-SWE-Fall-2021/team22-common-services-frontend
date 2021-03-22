@@ -4,15 +4,19 @@ function sendRegistration() {
     var lname = document.getElementById("lname").value;
     var address = document.getElementById("address").value;
     var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    var phoneNumber = document.getElementById("phoneNumber").value;
 
     let cloud = window.location.hostname.split('.')[0]
 
     let data = {
         'cloud': cloud,
-        'username': username,
         'fname': fname,
         'lname': lname,
         'address': address,
+        'phoneNumber': phoneNumber,
+        'email': email,
+        'username': username,
         'password': password
     };
 
