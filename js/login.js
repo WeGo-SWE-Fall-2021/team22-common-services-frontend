@@ -20,7 +20,7 @@ function logIn() {
 		body: JSON.stringify(data)
 	}).then(function(response) {
 			console.log(response.status);
-			if (response.status === 201) {
+			if (response.status === 200) {
 				window.location.assign(`https://${cloud}.team22.sweispring21.tk/dashboard.html`);
 			} else {
 				// TODO: Handle error
