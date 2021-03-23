@@ -26,11 +26,16 @@ function sendRegistration() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-    }).then(function(response) {
-        console.log(response.status);
-        if (response.status === 201)
-        {
-            window.location.assign("./login.html");
+    }).then(response => {
+        if (response.ok) {
+            return response.json();
         }
+        return Promise.reject(response)
+    }).then(data => {
+        console.log(data);
+        window.location.assign("./login.html");
+    }).catch(error => {
+        console.warn('Something went wrong.', error);
+        // TODO: Handle error based on status code
     });
 }

@@ -18,12 +18,16 @@ function logIn() {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(data)
-	}).then(function(response) {
-			console.log(response.status);
-			if (response.status === 200) {
-				window.location.assign(`https://${cloud}.team22.sweispring21.tk/dashboard.html`);
-			} else {
-				// TODO: Handle error
-			}
-		});
+	}).then(response => {
+		if (response.ok) {
+			return response.json();
+		}
+		return Promise.reject(response)
+	}).then(data => {
+		console.log(data);
+		window.location.assign(`https://${cloud}.team22.sweispring21.tk/dashboard.html`);
+	}).catch(error => {
+		console.warn('Something went wrong.', error);
+		// TODO: Handle error based on status code
+	});
 }
