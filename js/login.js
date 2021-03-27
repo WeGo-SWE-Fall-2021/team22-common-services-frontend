@@ -35,7 +35,7 @@ $(() => {
 			return Promise.reject(response)
 		}).then(data => {
 			console.log(data);
-			window.location.assign(`https://${cloud}.team22.sweispring21.tk/dashboard.html`);
+			window.location.assign(`https://${cloud}.team22.sweispring21.tk/${cloud}-frontend/dashboard.html`);
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
 			if (error.status === 401) {
