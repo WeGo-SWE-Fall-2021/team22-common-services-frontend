@@ -1,0 +1,32 @@
+.card-rounded {
+    border-radius: 28px;
+    border: 0;
+}
+
+/* For pixes less than 576*/
+
+.container {
+    max-width: 85%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.card-body {
+    padding: 0.5rem!important;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 75%;
+    }
+
+    .card-body {
+        padding: 3rem!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 580px;
+    }
+}

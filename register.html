@@ -1,26 +1,121 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Register</title>
-        <script src="js/register.js"></script>
-    </head>
-    <body>
-        <h2>Register</h2>
-        First Name
-        <input type="text" id="fname"><br>
-        Last Name
-        <input type="text" id="lname"><br>
-        Address
-        <input type="text" id="address"><br>
-        Phone Number
-        <input type="text" id="phoneNumber"><br>
-        Email
-        <input type="text" id="email"><br>
-        Username
-        <input type="text" id="username"><br>
-        Password
-        <input type="text" id="password"><br>
-        <button onclick="sendRegistration()">Submit Registration Info</button>
-    </body>
+	<head>
+		<meta charset="utf-8"/>
+		<title>We-Go Registration</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!--	Remote CSS 	-->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+			  integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+			  crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+		<!--	Local CSS	-->
+		<link href="css/common.css" rel="stylesheet">
+		<link href="css/register.css" rel="stylesheet">
+
+		<!--	Local Javascript	-->
+		<script src="js/register.js"></script>
+	</head>
+	<body>
+		<main class="min-vh-100 modal-dialog-centered">
+			<div class="container">
+				<div class="card shadow-lg p-3 bg-white card-rounded">
+					<div class="card-body p-5">
+						<div class="mb-2">
+							<a class="navbar-brand-text link-primary text-decoration-none" href="index.html">WeGo</a>
+						</div>
+						<h5 class="mb-3">Registration</h5>
+						<div id="errorAlert" class="alert alert-danger d-none" role="alert">
+							Incorrect username or password.
+						</div>
+						<div class="row mb-2">
+							<div class="col-sm">
+								<label class="col-form-label-sm" for="fname">First Name</label>
+								<input type="text" class="form-control" id="fname" required>
+								<div class="invalid-feedback">
+									Make sure first name is not empty.
+								</div>
+							</div>
+							<div class="col-sm">
+								<label class="col-form-label-sm" for="lname">Last Name</label>
+								<input type="text" class="form-control" id="lname" required>
+								<div class="invalid-feedback">
+									Make sure last name is not empty.
+								</div>
+							</div>
+						</div>
+						<!-- Do we really need address in this stage? -->
+						<!--
+						<div class="form-group">
+							<label class="form-label" for="address">Address</label>
+							<input type="text" class="form-control" id="address">
+						</div>
+						-->
+						<div class="col-12 mb-2">
+							<label class="col-form-label-sm" for="phoneNumber">Phone Number</label>
+							<input type="text" class="form-control" id="phoneNumber">
+							<div class="invalid-feedback">
+								Make sure phone number is not empty.
+							</div>
+						</div>
+						<div class="col-12 mb-2">
+							<label class="col-form-label-sm" for="email">Email</label>
+							<input type="email" class="form-control" id="email" required>
+							<div class="invalid-feedback">
+								Make sure email address is valid.
+							</div>
+						</div>
+						<div class="col-12 mb-2">
+							<label class="col-form-label-sm" for="username">Username</label>
+							<input type="text" class="form-control" id="username" required>
+							<div class="invalid-feedback">
+								Make sure username is not empty.
+							</div>
+						</div>
+
+						<div class="row mb-2">
+							<div class="col-sm">
+								<label class="col-form-label-sm" for="password">Password</label>
+								<input type="password" class="form-control" id="password" required>
+								<div class="invalid-feedback">
+									Make sure password meets minimum requirements.
+								</div>
+							</div>
+							<div class="col-sm">
+								<label class="col-form-label-sm" for="verifyPassword">Verify Password</label>
+								<input type="password" class="form-control" id="verifyPassword" required>
+								<div class="invalid-feedback">
+									Make sure the passwords match.
+								</div>
+							</div>
+						</div>
+						<div class="col-12">
+							<input type="checkbox" class="form-check-input" id="terms-and-conditions-checkbox" required>
+							<label class="form-check-label" for="terms-and-conditions-checkbox">
+								I accept the
+								<a href="">Terms of Use</a> <!-- Add Terms of Use Link -->
+								&
+								<a href="">Privacy Policy</a>  <!-- Add Privacy Policy link -->
+							</label>
+							<div class="invalid-feedback">
+								You must agree before submitting.
+							</div>
+						</div>
+						<hr class="my-4">
+						<button id="registerButton" class="w-100 btn btn-primary btn-lg">Register</button>
+						<div class="link-dark font-weight-light mt-2">
+							<small>Already have an account? <a class="font-weight-light" href="login.html">Log
+								in</a></small>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--Bootstrap JS files-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+				crossorigin="anonymous"></script>
+	</body>
 </html>

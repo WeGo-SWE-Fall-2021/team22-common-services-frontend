@@ -1,0 +1,98 @@
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 100vh;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.hero h2 {
+    color: #444444;
+    margin: 15px 0 0 0;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+.hero .btn-register-now {
+    /*margin-top: 30px;*/
+    line-height: 0;
+    padding: 15px 40px;
+    border-radius: 4px;
+    color: #fff;
+    background: #4154f1;
+    box-shadow: 0 5px 30px rgba(65, 84, 241, 0.4);
+}
+
+.hero .btn-register-now span {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.hero img {
+    text-align: right;
+}
+
+/* Header */
+.header-scroll {
+    background: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 20px rgba(1, 41, 112, 0.1)
+}
+
+/* Navbar Items*/
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 10px 30px;
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    /*color: #013289;*/
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+/* Anything less than 992 use these settings */
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 991px) {
+    .hero {
+        height: auto;
+        padding: 120px 0 60px 0;
+    }
+
+    .hero img {
+        text-align: center;
+        margin-top: 80px;
+    }
+}

@@ -1,0 +1,41 @@
+.navbar-brand-text {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.navbar-top {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Colors used for buttons/div background */
+
+.color-primary {
+    background-color: #0d6efd!important;
+}
+
+.color-secondary {
+    background-color: #012970!important;
+}
+
+/* Text colors site wide */
+
+.text-primary {
+    color: #0d6efd!important;
+}
+
+.text-secondary {
+    color: #012970!important;
+}
+
+.text-tertiary {
+
+}
+
+.text-quaternary {
+
+}
+
+.text-quinary {
+
+}
