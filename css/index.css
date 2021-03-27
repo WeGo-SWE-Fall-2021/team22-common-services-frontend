@@ -83,6 +83,10 @@
     .hero h2 {
         font-size: 24px;
     }
+
+    .hero {
+        text-align: center;
+    }
 }
 
 @media (max-width: 991px) {

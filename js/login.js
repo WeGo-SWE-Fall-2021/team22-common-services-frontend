@@ -45,7 +45,6 @@ $(() => {
 				// TODO: Handle error based on status code
 			}
 		});
-
 	})
 });
 
