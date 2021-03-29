@@ -20,7 +20,8 @@ $(function () {
         }).then(response => {
             if (response.ok) {
                 var result = response.json();
-                window.alert(result)
+//                window.alert(result)
+                console.log(result)
             }
          })
     })
