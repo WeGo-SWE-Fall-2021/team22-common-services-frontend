@@ -22,5 +22,6 @@ $(function () {
                 var result = response.json();
                 print (result.message)
             }
+         })
     })
 })
