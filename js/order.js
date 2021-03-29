@@ -7,7 +7,7 @@ $(function () {
 
         let data = {
             'cloud': cloud,
-            'originLocation': originLocation
+            'originLocation': originLocation,
             'destinationLocation': destinationLocation
         };
 
