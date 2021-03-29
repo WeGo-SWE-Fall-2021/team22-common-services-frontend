@@ -20,7 +20,7 @@ $(function () {
         }).then(response => {
             if (response.ok) {
                 var result = response.json();
-                print (result.message)
+                wind.alert(result.message)
             }
          })
     })
