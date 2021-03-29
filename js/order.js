@@ -11,7 +11,7 @@ $(function () {
             'destinationLocation': destinationLocation
         };
 
-        fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/common-services/order`, {
+        fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/order`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
