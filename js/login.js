@@ -30,11 +30,11 @@ $(() => {
 			body: JSON.stringify(data)
 		}).then(response => {
 			if (response.ok) {
-				return response.json();
+				return response;
 			}
 			return Promise.reject(response)
 		}).then(data => {
-			console.log(data);
+			console.log(data.headers);
 			window.location.assign(`https://${cloud}.team22.sweispring21.tk/${cloud}-frontend/dashboard.html`);
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
