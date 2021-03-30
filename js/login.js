@@ -35,6 +35,8 @@ $(() => {
 			return Promise.reject(response)
 		}).then(data => {
 			console.log(data);
+			let token = data["token"];
+			Cookies.set('token', token, {expires: 30 })
 			window.location.assign(`https://${cloud}.team22.sweispring21.tk/${cloud}-frontend/dashboard.html`);
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
