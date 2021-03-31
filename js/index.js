@@ -56,18 +56,11 @@ $(() => {
     fetch(cloudUrl + `/api/v1/common-services/user?cloud=${cloud}`, {
         method:"GET",
         headers: headers,
-
     }).then(response => {
         if (response.ok) {
             return response.json();
         }
-        return Promise.reject(response);
     }).then(() => {
         window.location.assign(cloudUrl + `/${cloud}-frontend/dashboard.html`)
-    }).catch(error => {
-        // If it fails to fetch user then redirect them to login
-        if (error.status === 401) {
-            window.location.assign("/login.html");
-        }
     });
 })
