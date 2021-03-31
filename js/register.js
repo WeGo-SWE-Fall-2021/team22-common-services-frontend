@@ -1,4 +1,7 @@
-$(function () {
+$(() => {
+    let cloud = window.location.hostname.split('.')[0]; // Get cloud name
+    let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
+
     $("#registerButton").click(() => {
         let fname = $("#fname").val();
         let lname = $("#lname").val();
@@ -32,7 +35,7 @@ $(function () {
             'password': password
         };
 
-        fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/common-services/register`, {
+        fetch(cloudURL + `/api/v1/common-services/register`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +48,7 @@ $(function () {
             return Promise.reject(response)
         }).then(data => {
             console.log(data);
-            window.location.assign("./login.html");
+            window.location.replace("./login.html");
         }).catch(error => {
             console.warn('Something went wrong.', error);
             let code = error.status

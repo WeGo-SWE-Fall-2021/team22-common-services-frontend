@@ -1,9 +1,11 @@
 $(() => {
+	let cloud = window.location.hostname.split('.')[0]; // Get cloud name
+	let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
+
 	$("#logInButton").click(() => {
 		let username = $("#username").val();
 		let password = $("#password").val();
-		let rememberMe = $("#rememberMeCheckbox").prop("checked");
-		let cloud = window.location.hostname.split('.')[0] // Get cloud name
+		// let rememberMe = $("#rememberMeCheckbox").prop("checked");
 
 		$('#errorAlert').addClass('d-none');
 
@@ -22,7 +24,7 @@ $(() => {
 			'password': password
 		};
 
-		fetch(`https://${cloud}.team22.sweispring21.tk/api/v1/common-services/login`, {
+		fetch(cloudURL + "/login", {
 			method:"POST",
 			headers: {
 				'Content-Type': 'application/json'
@@ -35,7 +37,7 @@ $(() => {
 			return Promise.reject(response)
 		}).then(data => {
 			console.log(data.headers);
-			window.location.assign(`https://${cloud}.team22.sweispring21.tk/${cloud}-frontend/dashboard.html`);
+			window.location.replace(cloudURL + "/dashboard.html");
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
 			if (error.status === 401) {
