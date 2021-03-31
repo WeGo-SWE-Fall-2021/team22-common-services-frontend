@@ -60,6 +60,7 @@ $(() => {
         if (response.ok) {
             return response.json();
         }
+        return Promise.reject(response);
     }).then(() => {
         window.location.assign(cloudUrl + `/${cloud}-frontend/dashboard.html`)
     });
