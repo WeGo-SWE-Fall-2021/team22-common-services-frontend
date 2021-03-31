@@ -24,7 +24,7 @@ $(() => {
 			'password': password
 		};
 
-		fetch(cloudURL + "/login", {
+		fetch(cloudURL + "/api/v1/common-services/login", {
 			method:"POST",
 			headers: {
 				'Content-Type': 'application/json'
