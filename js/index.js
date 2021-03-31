@@ -13,6 +13,7 @@ $(window).scroll(() => {
     }
 });
 
+// If the user resizes and the tab is still shown, we will need to hide it and show the navigation
 $(window).resize(() => {
     let windowWidth = $(window).width();
     if (windowWidth > 991) {
@@ -61,8 +62,8 @@ $(() => {
         }
         return Promise.reject(response);
     }).then(() => {
-        window.location.assign(cloudUrl + `/${cloud}-frontend/dashboard.html`)
-    }).catch(error => {
+        window.location.replace(cloudUrl + `/${cloud}-frontend/dashboard.html`)
+    }).catch(() => {
         // Handle error
     })
 })
