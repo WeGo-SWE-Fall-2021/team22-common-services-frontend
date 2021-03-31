@@ -52,7 +52,6 @@ $(() => {
 $(() => {
     // This will validate the token if there is any to the server.
     let headers = new Headers();
-    let cloud = window.location.hostname.split('.')[0]
     fetch(cloudUrl + `/api/v1/common-services/user?cloud=${cloud}`, {
         method:"GET",
         headers: headers,
@@ -63,5 +62,7 @@ $(() => {
         return Promise.reject(response);
     }).then(() => {
         window.location.assign(cloudUrl + `/${cloud}-frontend/dashboard.html`)
-    });
+    }).catch(error => {
+        // Handle error
+    })
 })
