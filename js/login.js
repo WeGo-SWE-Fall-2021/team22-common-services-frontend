@@ -37,7 +37,7 @@ $(() => {
 			return Promise.reject(response)
 		}).then(data => {
 			console.log(data.headers);
-			window.location.replace(cloudURL + "/dashboard.html");
+			window.location.replace(cloudURL + `/${cloud}-frontend/dashboard.html`);
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
 			if (error.status === 401) {

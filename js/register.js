@@ -63,7 +63,6 @@ $(() => {
             } else {
                 // TODO: Handle error based on status code
                 $('#errorAlert').removeClass('d-none').text('There was an error communicating with the server.');
-                // TODO: Handle error based on status code
             }
         });
     })
