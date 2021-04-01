@@ -52,21 +52,21 @@ $(() => {
 })
 
 // This function will check to see if there is credentials saved. If so just direct them to the dashboard
-$(() => {
-    // This will validate the token if there is any to the server.
-    fetch(cloudURL + `/api/v1/common-services/user?cloud=${cloud}`, {
-        method:"GET",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    }).then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        return Promise.reject(response);
-    }).then(() => {
-        window.location.replace(cloudURL + `/${cloud}-frontend/dashboard.html`)
-    }).catch(() => {
-        // Handle error
-    })
-})
+// $(() => {
+//     // This will validate the token if there is any to the server.
+//     fetch(cloudURL + `/api/v1/common-services/user?cloud=${cloud}`, {
+//         method:"GET",
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//     }).then(response => {
+//         if (response.ok) {
+//             return response.json();
+//         }
+//         return Promise.reject(response);
+//     }).then(() => {
+//         window.location.replace(cloudURL + `/${cloud}-frontend/dashboard.html`)
+//     }).catch(() => {
+//         // Handle error
+//     })
+// })
