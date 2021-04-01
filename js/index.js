@@ -2,7 +2,6 @@
 let cloud = window.location.hostname.split('.')[0]
 let cloudURL = `https://${cloud}.team22.sweispring21.tk`
 
-
 /* Adds shadow on header once it passes height */
 $(window).scroll(() => {
     let header = $("header")
@@ -31,7 +30,6 @@ $(window).resize(() => {
 });
 
 // Switch from hamburger icon to x icon if pressed
-
 $(() => {
     $('#mobile-nav-toggle').click(function () {
         let hasList = $(this).hasClass('bi-list');
@@ -51,22 +49,28 @@ $(() => {
     });
 })
 
-// This function will check to see if there is credentials saved. If so just direct them to the dashboard
-// $(() => {
-//     // This will validate the token if there is any to the server.
-//     fetch(cloudURL + `/api/v1/common-services/user?cloud=${cloud}`, {
-//         method:"GET",
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//     }).then(response => {
-//         if (response.ok) {
-//             return response.json();
-//         }
-//         return Promise.reject(response);
-//     }).then(() => {
-//         window.location.replace(cloudURL + `/${cloud}-frontend/dashboard.html`)
-//     }).catch(() => {
-//         // Handle error
-//     })
-// })
+// General main func once documents finished loading
+
+$(() => {
+    // This function checks to see if there is credentials saved. If so just direct them to the dashboard
+    fetchLoggedInUser().then(response => {
+        // Success getting user
+        if (response.status === 200) {
+            $("#registerList").hide();
+            $("#loginList").hide();
+            $("#usernameLabel").text(response.body["username"]);
+            // Assign dashboard button to redirect
+            $("#dashboardList:first-child").attr('href', cloudURL + `/${cloud}-frontend/dashboard.html`);
+            $(".logged-in-user").removeClass('d-none').show();
+        } else {
+            // Failed to get user with token
+            $("#registerList").show();
+            $("#loginList").show();
+            $("#usernameLabel").text("Username");
+            $(".logged-in-user").addClass('d-none').hide();
+        }
+    }).catch(error => {
+        // Error fetching
+        console.log("Error fetching: " + error)
+    })
+})

@@ -63,7 +63,7 @@ hr {
     position: relative;
 }
 
-.navbar ul a {
+.navbar ul li a {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -138,6 +138,11 @@ hr {
 
     .navbar ul {
         display: none;
+    }
+
+    ul .dropdown-menu {
+        position: static;
+        float: none;
     }
 
     .mobile-nav-toggle {
