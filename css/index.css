@@ -158,4 +158,23 @@ hr {
         text-align: center;
         margin-top: 80px;
     }
+
+    .dropdown-menu {
+        display: block !important;
+        margin: 0 1rem 0 0;
+        border-width: 0;
+        border-radius: 8px;
+    }
+
+    .dropdown-menu hr {
+        display: none;
+    }
+
+    .dropdown-toggle::after {
+        content: none;
+    }
+
+    #loginList {
+        margin-top: .50rem;
+    }
 }

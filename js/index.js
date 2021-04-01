@@ -61,8 +61,11 @@ $(() => {
             $("#usernameLabel").text(response.body["username"]);
             // Assign dashboard button to redirect
             $("#dashboardLink").attr('href', cloudURL + `/${cloud}-frontend/dashboard.html`);
-            $("#btnHeroPrimary").removeClass("color-primary").addClass("bg-secondary");
-            $("#btnHeroPrimary > span").text("Go to Dashboard")
+            $("#btnHeroPrimary")
+                .removeClass("color-primary")
+                .addClass("bg-secondary")
+                .attr(cloudURL + `/${cloud}-frontend/dashboard.html`);
+            $("#btnHeroPrimary > span").text("Go to Dashboard");
             $(".logged-in-user").removeClass('d-none').show();
             $("#logoutButton").click(() => {
                 logoutUser().then(r => {
@@ -75,8 +78,11 @@ $(() => {
             $("#loginList").show();
             $("#usernameLabel").text("Username");
             $("#dashboardLink").attr('href', "");
-            $("#btnHeroPrimary").removeClass("bg-secondary").addClass("color-primary");
-            $("#btnHeroPrimary > span").text("Register Now")
+            $("#btnHeroPrimary")
+                .removeClass("bg-secondary")
+                .addClass("color-primary")
+                .attr(cloudURL + "/register.html");
+            $("#btnHeroPrimary > span").text("Register Now");
             $(".logged-in-user").addClass('d-none').hide();
         }
     }).catch(error => {
