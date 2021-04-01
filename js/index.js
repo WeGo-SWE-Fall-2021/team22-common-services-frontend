@@ -60,7 +60,7 @@ $(() => {
             $("#loginList").hide();
             $("#usernameLabel").text(response.body["username"]);
             // Assign dashboard button to redirect
-            $("#dashboardList:first-child").attr('href', cloudURL + `/${cloud}-frontend/dashboard.html`);
+            $("#dashboardLink").attr('href', cloudURL + `/${cloud}-frontend/dashboard.html`);
             $(".logged-in-user").removeClass('d-none').show();
         } else {
             // Failed to get user with token
