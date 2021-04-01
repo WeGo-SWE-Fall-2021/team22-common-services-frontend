@@ -64,7 +64,11 @@ $(() => {
             $("#btnHeroPrimary").removeClass("color-primary").addClass("bg-secondary");
             $("#btnHeroPrimary > span").text("Go to Dashboard")
             $(".logged-in-user").removeClass('d-none').show();
-            $("#logoutButton").click(logoutUser());
+            $("#logoutButton").click(() => {
+                logoutUser().then(r => {
+                    console.log("Logging out user!")
+                });
+            });
         } else {
             // Failed to get user with token
             $("#registerList").show();
