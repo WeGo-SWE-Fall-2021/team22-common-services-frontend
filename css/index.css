@@ -18,7 +18,7 @@
     font-weight: normal;
 }
 
-.hero .btn-register-now {
+#btnHeroPrimary {
     /*margin-top: 30px;*/
     line-height: 0;
     padding: 15px 40px;
@@ -28,7 +28,7 @@
     box-shadow: 0 5px 30px rgba(65, 84, 241, 0.4);
 }
 
-.hero .btn-register-now span {
+#btnHeroPrimary span {
     font-weight: 600;
     font-size: 16px;
     letter-spacing: 1px;

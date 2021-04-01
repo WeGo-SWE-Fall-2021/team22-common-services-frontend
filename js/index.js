@@ -61,12 +61,18 @@ $(() => {
             $("#usernameLabel").text(response.body["username"]);
             // Assign dashboard button to redirect
             $("#dashboardLink").attr('href', cloudURL + `/${cloud}-frontend/dashboard.html`);
+            $("#btnHeroPrimary").removeClass("color-primary").addClass("bg-secondary");
+            $("#btnHeroPrimary > span").text("Go to Dashboard")
             $(".logged-in-user").removeClass('d-none').show();
+            $("#logoutButton").click(logoutUser());
         } else {
             // Failed to get user with token
             $("#registerList").show();
             $("#loginList").show();
             $("#usernameLabel").text("Username");
+            $("#dashboardLink").attr('href', "");
+            $("#btnHeroPrimary").removeClass("bg-secondary").addClass("color-primary");
+            $("#btnHeroPrimary > span").text("Register Now")
             $(".logged-in-user").addClass('d-none').hide();
         }
     }).catch(error => {
