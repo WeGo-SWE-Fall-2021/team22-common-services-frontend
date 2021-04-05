@@ -64,7 +64,7 @@ $(() => {
             $("#btnHeroPrimary")
                 .removeClass("color-primary")
                 .addClass("bg-secondary")
-                .attr(cloudURL + `/${cloud}-frontend/dashboard.html`);
+                .attr("href", cloudURL + `/${cloud}-frontend/dashboard.html`);
             $("#btnHeroPrimary > span").text("Go to Dashboard");
             $(".logged-in-user").removeClass('d-none').show();
             $("#logoutButton").click(() => {
