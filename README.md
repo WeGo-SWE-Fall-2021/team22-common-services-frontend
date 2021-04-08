@@ -8,3 +8,6 @@ This is the front end of any common files `demand` and `supply` sides have.
 
 - register.html
     * This is the registration form for both `demand` and `supply`
+
+- index.html
+    * This is the index page you see when first checking out the website

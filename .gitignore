@@ -1,1 +1,8 @@
+# Ignire Jetbrains workspace
 .idea/
+
+# Ignore visual studio code workspace
+.vscode/
+
+# Ignore macOS DS_STORE Files
+.DS_STORE

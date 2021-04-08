@@ -24,6 +24,11 @@ $(() => {
             return
         }
 
+        // Create salt
+		let salt = sha256(username.toLowerCase());
+        // Generate hash password
+		let hashedPassword = sha256(salt + password);
+
         let data = {
             'cloud': cloud,
             'fname': fname,
@@ -32,7 +37,7 @@ $(() => {
             'phoneNumber': phoneNumber,
             'email': email,
             'username': username,
-            'password': password
+            'password': hashedPassword
         };
 
         fetch(cloudURL + `/api/v1/common-services/register`, {
