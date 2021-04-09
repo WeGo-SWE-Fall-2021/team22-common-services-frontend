@@ -5,7 +5,6 @@ $(() => {
     $("#registerButton").click(() => {
         let fname = $("#fname").val();
         let lname = $("#lname").val();
-        // var address = document.getElementById("address").value;
         let phoneNumber = $("#phoneNumber").val();
         let email = $("#email").val();
         let username = $("#username").val();
@@ -31,8 +30,8 @@ $(() => {
 
         let data = {
             'cloud': cloud,
-            'fname': fname,
-            'lname': lname,
+            'firstName': fname,
+            'lastName': lname,
             'address': "",
             'phoneNumber': phoneNumber,
             'email': email,
