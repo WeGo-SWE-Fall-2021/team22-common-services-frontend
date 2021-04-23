@@ -8,6 +8,21 @@
     padding-bottom: 20px;
 }
 
+/* Remove green from it on forms since it might be misinterpreted */
+.form-control.is-valid:focus, .was-validated .form-control:valid:focus {
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+    border-color: #86b7fe;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+    border: 1px solid #ced4da;
+    padding-right: 0;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-size: 0;
+}
+
 /* Colors used for buttons/div background */
 
 .color-primary {
@@ -26,16 +41,4 @@
 
 .text-secondary {
     color: #012970!important;
-}
-
-.text-tertiary {
-
-}
-
-.text-quaternary {
-
-}
-
-.text-quinary {
-
 }

@@ -3,19 +3,15 @@ $(() => {
     let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
 
     $("#registerButton").click(() => {
-        let fname = $("#fname").val();
-        let lname = $("#lname").val();
-        let phoneNumber = $("#phoneNumber").val();
-        let email = $("#email").val();
-        let username = $("#username").val();
+        let fname = $("#fname").val().trim();
+        let lname = $("#lname").val().trim();
+        let phoneNumber = $("#phoneNumber").val().trim();
+        let email = $("#email").val().trim();
+        let username = $("#username").val().trim();
         let password = $("#password").val();
 
-        let cloud = window.location.hostname.split('.')[0]
-
         $('#errorAlert').addClass('d-none');
-
         $('.card-body').addClass('was-validated');
-
         let errorVisible = $('.invalid-feedback:visible').length
 
         if (errorVisible !== 0) {
@@ -23,10 +19,7 @@ $(() => {
             return
         }
 
-        // Create salt
-		let salt = sha256(username.toLowerCase());
-        // Generate hash password
-		let hashedPassword = sha256(salt + password);
+        let hashedPassword = hash(username.toLowerCase(), password)
 
         let data = {
             'cloud': cloud,
@@ -35,7 +28,7 @@ $(() => {
             'address': "",
             'phoneNumber': phoneNumber,
             'email': email,
-            'username': username,
+            'username': username.toLowerCase(),
             'password': hashedPassword
         };
 
@@ -55,14 +48,14 @@ $(() => {
             window.location.replace("./login.html");
         }).catch(error => {
             console.warn('Something went wrong.', error);
-            let code = error.status
+            let code = error.status;
             if (code === 401) {
                 // On text change remove invalid and add as valid
                 $('#username').addClass('is-invalid').change(() => {
-                    $(this).removeClass('is-invalid')
-                    $(this).addClass('is-valid')
-                    $(this).next().text("Make sure username is not empty.")
-                    $(this).off('change')
+                    $(this).removeClass('is-invalid');
+                    $(this).addClass('is-valid');
+                    $(this).next().text("Make sure username is not empty.");
+                    $(this).off('change');
                 }).next().text("This username is taken.");
             } else {
                 // TODO: Handle error based on status code

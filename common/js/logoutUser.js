@@ -20,5 +20,6 @@ async function logoutUser() {
         window.location.replace(cloudURL);
     }).catch(error => {
         // Handle error
+        console.error(error)
     })
 }

@@ -3,29 +3,23 @@ $(() => {
 	let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
 
 	$("#logInButton").click(() => {
-		let username = $("#username").val();
+		let username = $("#username").val().trim();
 		let password = $("#password").val();
 		// let rememberMe = $("#rememberMeCheckbox").prop("checked");
 
 		$('#errorAlert').addClass('d-none');
-
 		$('.card-body').addClass('was-validated');
-
 		let errorVisible = $('.invalid-feedback:visible').length
-
 		if (errorVisible !== 0) {
 			console.log("There are currently errors in validation. User needs to fix those errors before proceeding.")
 			return
 		}
 
-        // Create salt
-		let salt = sha256(username.toLowerCase());
-        // Generate hash password
-		let hashedPassword = sha256(salt + password);
+		let hashedPassword = hash(username.toLowerCase(), password)
 
 		let data = {
 			'cloud': cloud,
-			'username': username,
+			'username': username.toLowerCase(),
 			'password': hashedPassword
 		};
 
@@ -41,7 +35,6 @@ $(() => {
 			}
 			return Promise.reject(response)
 		}).then(data => {
-			console.log(data.headers);
 			window.location.replace(cloudURL + `/${cloud}-frontend/dashboard.html`);
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
@@ -52,5 +45,5 @@ $(() => {
 				// TODO: Handle error based on status code
 			}
 		});
-	})
+	});
 });

@@ -53,7 +53,7 @@ $(() => {
 
 $(() => {
     // This function checks to see if there is credentials saved. If so just direct them to the dashboard
-    fetchLoggedInUser().then(response => {
+    fetchLoggedInUser(cloud).then(response => {
         // Success getting user
         if (response.status === 200) {
             $("#registerList").hide();
@@ -87,6 +87,6 @@ $(() => {
         }
     }).catch(error => {
         // Error fetching
-        console.log("Error fetching: " + error)
+        console.error("Error fetching: " + error)
     })
 })
