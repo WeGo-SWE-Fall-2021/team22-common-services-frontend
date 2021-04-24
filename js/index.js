@@ -56,9 +56,10 @@ $(() => {
     fetchLoggedInUser(cloud).then(response => {
         // Success getting user
         if (response.status === 200) {
+            let user = response.body["user"];
             $("#registerList").hide();
             $("#loginList").hide();
-            $("#usernameLabel").text(response.body["username"]);
+            $("#usernameLabel").text(user["username"]);
             // Assign dashboard button to redirect
             $("#dashboardLink").attr('href', cloudURL + `/${cloud}-frontend/dashboard.html`);
             $("#btnHeroPrimary")
