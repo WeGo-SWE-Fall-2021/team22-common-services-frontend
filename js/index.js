@@ -39,6 +39,7 @@ $(() => {
             $(this).removeClass('text-secondary');
             $(this).addClass('text-white');
             $('#navbar').addClass('navbar-mobile');
+            let alertVisible = $("#mainAlert").is(":visible");
         } else {
             $(this).removeClass('bi-x');
             $(this).addClass('bi-list');
@@ -88,6 +89,8 @@ $(() => {
         }
     }).catch(error => {
         // Error fetching
+        $("#mainAlert").removeClass("d-none").text("There was an error fetching information.");
+        $("#hero-section").addClass("hero-alert-section-padding");
         console.error("Error fetching: " + error)
     })
-})
+});
