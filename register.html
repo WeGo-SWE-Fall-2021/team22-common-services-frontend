@@ -17,8 +17,10 @@
 		<link href="css/register.css" rel="stylesheet">
 
 		<!--	Local Javascript	-->
-		<script src="js/register.js"></script>
 		<script src="common/js/hashUtils.js"></script>
+		<script src="common/js/common.js"></script>
+		<script src="common/js/validation.js"></script>
+		<script src="js/register.js"></script>
 	</head>
 	<body>
 		<main class="d-flex justify-content-center align-items-center">
@@ -50,7 +52,7 @@
 						</div>
 						<div class="col-12 mb-2">
 							<label class="col-form-label-sm" for="phoneNumber">Phone Number</label>
-							<input type="text" class="form-control" id="phoneNumber">
+							<input type="tel"" placeholder="000-000-0000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" id="phoneNumber" required>
 							<div class="invalid-feedback">
 								Make sure phone number is not empty.
 							</div>

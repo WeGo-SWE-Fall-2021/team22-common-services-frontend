@@ -20,7 +20,7 @@ async function logoutUser() {
         window.location.replace(cloudURL);
     }).catch(error => {
         // Handle error
-        $('#mainAlert').removeClass('d-none').text('There was an error logging out.');
+        showAlert('There was an error logging out.');
         console.error(error)
     })
 }

@@ -5,7 +5,6 @@ $(() => {
 	$("#logInButton").click(() => {
 		let username = $("#username").val().trim();
 		let password = $("#password").val();
-		// let rememberMe = $("#rememberMeCheckbox").prop("checked");
 
 		$('#errorAlert').addClass('d-none');
 		$('.card-body').addClass('was-validated');
