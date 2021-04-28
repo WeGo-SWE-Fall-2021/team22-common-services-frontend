@@ -7,20 +7,12 @@ $(() => {
     $("#phoneNumber").on('input', function () { validateString(phoneNumberRegex, this) });
     $("#email").on('input', function () { validateString(emailAddressRegex, this) });
     $("#username").on('input', function () { validateString(usernameRegex, this) });
-    $("#password").on('input', function () {
-        let value = $(this).val().trim();
-        if (!value.match(passwordRegex)) {
-            $(this).addClass("invalid-input");
-            let label = $(this).prev('label').text().toLowerCase();
-            if (label === "") {
-                $(this).next(".invalid-feedback").text(`Make sure password is not empty.`).addClass("d-block");
-            } else {
-                $(this).next(".invalid-feedback").html(`Make sure password meets the following criteria: <br>- At least 8 characters long <br> - one upper case <br> - one lower case <br> - at least a number.`).addClass("d-block");
-            }
-        } else {
-            $(this).next(".invalid-feedback").removeClass("d-block")
-            $(this).removeClass("invalid-input");
-        }
+    $("#password").on('input', function () { passwordValidation(this) });
+
+    $('.bi-question-circle').popover( {
+        container: 'body',
+        content: 'Your password should: <br> - be at least 8 characters long <br> - contain one upper case<br> - contain one lower case<br>- contain at least a number.',
+        html: true
     });
 
     $("#verifyPassword").on('input', function () {
@@ -50,7 +42,6 @@ $(() => {
         $('#errorAlert').addClass('d-none');
         let errorVisible = $('.invalid-feedback:visible').length
         if (errorVisible !== 0) {
-            console.log("There are currently errors in validation. User needs to fix those errors before proceeding.")
             return
         }
 
@@ -79,7 +70,6 @@ $(() => {
             }
             return Promise.reject(response)
         }).then(data => {
-            console.log(data);
             window.location.replace("./login.html");
         }).catch(error => {
             console.warn('Something went wrong.', error);
