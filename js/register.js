@@ -1,20 +1,15 @@
 $(() => {
+    var submitPressed = false;
+
     let cloud = window.location.hostname.split('.')[0]; // Get cloud name
     let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
 
-    $("#fname").on('input', function () { validateString(nameRegex, this) });
-    $("#lname").on('input', function () { validateString(nameRegex, this) });
-    $("#phoneNumber").on('input', function () { validateString(phoneNumberRegex, this) });
-    $("#email").on('input', function () { validateString(emailAddressRegex, this) });
-    $("#username").on('input', function () { validateString(usernameRegex, this) });
-    $("#password").on('input', function () { passwordValidation(this) });
-
-    $('.bi-question-circle').popover( {
-        container: 'body',
-        content: 'Your password should: <br> - be at least 8 characters long <br> - contain one upper case<br> - contain one lower case<br>- contain at least a number.',
-        html: true
-    });
-
+    $("#fname").on('input', function () { submitPressed ? validateString(nameRegex, this) : null });
+    $("#lname").on('input', function () { submitPressed ? validateString(nameRegex, this) : null });
+    $("#phoneNumber").on('input', function () { submitPressed ? phoneNumberValidation(this) : null });
+    $("#email").on('input', function () { submitPressed ? validateString(emailAddressRegex, this) : null });
+    $("#username").on('input', function () { submitPressed ? validateString(usernameRegex, this) : null });
+    $("#password").on('input', function () { submitPressed ? passwordValidation(this) : null });
     $("#verifyPassword").on('input', function () {
         let verifyPassword = $(this).val().trim();
         let passowrd = $('#password').val().trim();
@@ -30,7 +25,15 @@ $(() => {
         }
     })
 
+    $('.bi-question-circle').popover( {
+        container: 'body',
+        content: 'Your password should: <br> - be at least 8 characters long <br> - contain one upper case<br> - contain one lower case<br>- contain at least a number.',
+        html: true
+    });
+
     $("#registerButton").click(() => {
+        submitPressed = true;
+
         let fname = $("#fname").val().trim();
         let lname = $("#lname").val().trim();
         let phoneNumber = $("#phoneNumber").val().trim();

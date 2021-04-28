@@ -2,9 +2,21 @@ let charactersOnlyRegex = /^[a-zA-Z]+(?:[\s][a-zA-Z]+)*$/;
 let zipCodeRegex = /^[0-9]{5}(?:-[0-9]{4})?$/;
 let nameRegex = /^[a-z ,.'-]+$/i;
 let stringEmpty = /^(?!\s*$).+/
-let phoneNumberRegex = /^\d{3}-\d{3}-\d{4}$/
+let phoneNumberRegex = /^(1|)?(\d{3})(\d{3})(\d{4})$/
 let emailAddressRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 let usernameRegex = /^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/
+
+function phoneNumberValidation(element) {
+    let value = $(element).val().trim();
+    var cleaned = ('' + value).replace(/\D/g, '');
+    var valid = cleaned.match(phoneNumberRegex);
+    if (valid) {
+      var intlCode = (valid[1] ? '+1 ' : '');
+      var formatted = [intlCode, '(', valid[2], ') ', valid[3], '-', valid[4]].join('');
+      $(element).val(formatted)
+    }
+    validOrNot(element, valid);
+}
 
 function validateString(regex, element) {
     let value = $(element).val().trim();
