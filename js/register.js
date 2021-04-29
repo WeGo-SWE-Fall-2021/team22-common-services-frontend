@@ -77,12 +77,13 @@ $(() => {
         }).catch(error => {
             console.warn('Something went wrong.', error);
             if (error.status != undefined && error.status === 401) {    
-                let errorMsg = await error.json();
-                for (var i = 0; i < errorMsg.values.length; i++) {
-                    let id = errorMsg.values[i].id;
-                    let message = errorMsg.values[i].message;
-                    $(`#${id}`).addClass('invalid-input').next(".invalid-feedback").text(message).addClass("d-block");        
-                }
+                error.json().then(function (data) {
+                    for (var i = 0; i < data.values.length; i++) {
+                        let id = errorMsg.values[i].id;
+                        let message = errorMsg.values[i].message;
+                        $(`#${id}`).addClass('invalid-input').next(".invalid-feedback").text(message).addClass("d-block");        
+                    }    
+                });
             } else {
                 $('#errorAlert').removeClass('d-none').text('There was an error communicating with the server.');
             }
