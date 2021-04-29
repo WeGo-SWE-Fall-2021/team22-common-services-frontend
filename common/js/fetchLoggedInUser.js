@@ -6,8 +6,8 @@ async function fetchLoggedInUser(cloud) {
         headers: {
             'Content-Type': 'application/json'
         },
-    }).then(r => r.json().then(data => ({
-            status: r.status,
+    }).then(response => response.json().then(data => ({
+            status: response.status,
             body: data
         }))
     );
