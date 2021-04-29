@@ -79,8 +79,8 @@ $(() => {
             if (error.status != undefined && error.status === 401) {    
                 error.json().then(function (data) {
                     for (var i = 0; i < data.values.length; i++) {
-                        let id = errorMsg.values[i].id;
-                        let message = errorMsg.values[i].message;
+                        let id = data.values[i].id;
+                        let message = data.values[i].message;
                         $(`#${id}`).addClass('invalid-input').next(".invalid-feedback").text(message).addClass("d-block");        
                     }    
                 });
