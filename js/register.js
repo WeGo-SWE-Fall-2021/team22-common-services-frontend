@@ -1,8 +1,7 @@
 $(() => {
     var submitPressed = false;
 
-    let cloud = window.location.hostname.split('.')[0]; // Get cloud name
-    let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
+    let cloudURL = `https://wego.madebyerikb.com`;
 
     $("#fname").on('input', function () { submitPressed ? validateString(nameRegex, this) : null });
     $("#lname").on('input', function () { submitPressed ? validateString(nameRegex, this) : null });
@@ -40,6 +39,7 @@ $(() => {
         let email = $("#email").val().trim();
         let username = $("#username").val().trim();
         let password = $("#password").val();
+        let cloud = $("#registeringAsFleetMgr").prop('checked') ? "supply" : "demand";
 
         $('input').trigger('input');
         $('#errorAlert').addClass('d-none');
@@ -61,7 +61,7 @@ $(() => {
             'password': hashedPassword
         };
 
-        fetch(cloudURL + `/api/v1/common-services/register`, {
+        fetch(cloudURL + `/api/register`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

@@ -1,6 +1,5 @@
 $(() => {
-	let cloud = window.location.hostname.split('.')[0]; // Get cloud name
-	let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
+	let cloudURL = `https://wego.madebyerikb.com`;
 
 	$("#logInButton").click(() => {
 		let username = $("#username").val().trim();
@@ -17,12 +16,11 @@ $(() => {
 		let hashedPassword = hash(username.toLowerCase(), password)
 
 		let data = {
-			'cloud': cloud,
 			'username': username.toLowerCase(),
 			'password': hashedPassword
 		};
 
-		fetch(cloudURL + "/api/v1/common-services/login", {
+		fetch(cloudURL + "/api/login", {
 			method:"POST",
 			headers: {
 				'Content-Type': 'application/json'
@@ -34,7 +32,7 @@ $(() => {
 			}
 			return Promise.reject(response)
 		}).then(data => {
-			window.location.replace(cloudURL + `/${cloud}-frontend/dashboard.html`);
+			window.location.replace(cloudURL + `/${data['cloud']}/`);
 		}).catch(error => {
 			console.warn('Something went wrong.', error);
 			if (error.status === 401) {

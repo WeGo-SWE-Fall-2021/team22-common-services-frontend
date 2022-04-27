@@ -1,7 +1,5 @@
-async function fetchLoggedInUser(cloud) {
-    let cloudURL = `https://${cloud}.team22.sweispring21.tk`;
-
-    return await fetch(cloudURL + `/api/v1/common-services/user?cloud=${cloud}`, {
+async function fetchLoggedInUser() {
+    return await fetch(`https://wego.madebyerikb.com/api/user`, {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
